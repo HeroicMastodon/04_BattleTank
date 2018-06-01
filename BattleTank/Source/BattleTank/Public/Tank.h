@@ -23,7 +23,7 @@ protected:
 	virtual void BeginPlay() override;
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
-public:	
+private:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -33,5 +33,8 @@ public:
 	// Sets default values for this pawn's properties
 	ATank();
 	
+	UPROPERTY(EditAnywhere, Category = Firing)
+	float LaunchSpeed = 100000.0; // TODO Find Sensible default
+
 	
 };
