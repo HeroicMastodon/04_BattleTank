@@ -14,22 +14,29 @@ void ATankAIController::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("AIController Not Possessing a Tank"))
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("AIController possessing: %s"), *(ControlledTank->GetName()));
-	}
 
 	auto PlayerTank = GetPlayerTank();
 	if (!PlayerTank)
 	{
 		UE_LOG(LogTemp, Error, TEXT("AI Controller Cannot Find Player Tank"))
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("AI Controller found: %s"), *(PlayerTank->GetName()));
-	}
+
 
 }
+
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	if (GetPlayerTank())
+	{
+		// TODO Move towards the player
+
+		// Aim towards the player
+		GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+
+		// TODO Fire if ready
+	}
+};
 
 ATank* ATankAIController::GetControlledTank() const
 {

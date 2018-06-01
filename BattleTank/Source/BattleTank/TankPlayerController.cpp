@@ -37,8 +37,8 @@ void ATankPlayerController::Tick(float DeltaTime)
 	 FVector HitLocation;  // Out parameter
 	 if (GetSightRayHitLocation(HitLocation))
 	 {
-		UE_LOG(LogTemp, Warning, TEXT("Look direction: %s"), *HitLocation.ToString())  // Has "side-effect", is going to line trace
-		// TODO Tell controlled tank to aim at this point
+	
+		 GetControlledTank()->AimAt(HitLocation);
 	 }
  }
 
