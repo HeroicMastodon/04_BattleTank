@@ -3,7 +3,7 @@
 #include "TankPlayerController.h"
 #include "BattleTank.h"
 #include "Engine/World.h"
-
+#include "Public/Tank.h"
 
 void ATankPlayerController::BeginPlay()
 {
