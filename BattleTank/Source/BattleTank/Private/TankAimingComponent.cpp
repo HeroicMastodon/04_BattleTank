@@ -5,7 +5,7 @@
 #include "Classes/Components/StaticMeshComponent.h"
 #include "Classes/Kismet/GameplayStatics.h"
 #include "Public/TankBarrel.h"
-
+#include "DrawDebugHelpers.h"
 
 
 
@@ -28,7 +28,8 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	if (!Barrel) { return; }
 	FVector OutLaunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile"));
-
+	FVector AimDirection;
+	DrawDebugLine(GetWorld(), StartLocation, AimDirection * 100000, FColor::Red, false, -1.f, 0, 20.f);
 	// Calculate the OutLaunchVelocity
 	
 	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity
@@ -65,12 +66,13 @@ void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 {
 	///Wordk-out diffference between current barrel totation, and aimdirection
+
 	auto BarrelRotator = Barrel->GetForwardVector().Rotation();
 	auto AimAsRotator = AimDirection.Rotation();
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 	UE_LOG(LogTemp, Warning, TEXT("AimASRotator: %s"), *AimAsRotator.ToString())
 
-		Barrel->Elevate(5); // TODO remove magic number
+		Barrel->Elevate(DeltaRotator.Pitch); // TODO remove magic number
 
 }
 
