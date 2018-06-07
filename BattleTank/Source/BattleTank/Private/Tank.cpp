@@ -3,6 +3,7 @@
 #include "Public/Tank.h"
 #include "Public/TankAimingComponent.h"
 #include "Public/TankTurret.h"
+#include "Engine/World.h"
 
 
 // Sets default values
@@ -47,3 +48,8 @@ void ATank::SetTurretReference(UTankTurret* TurretToSet)
 	TankAimingComponent->SetTurretReference(TurretToSet);
 }
 
+void ATank::Fire()
+{
+	auto Time = GetWorld()->GetTimeSeconds();
+	UE_LOG(LogTemp, Warning, TEXT("Fire at %f seconds"), Time)
+}
