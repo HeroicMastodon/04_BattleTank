@@ -47,15 +47,18 @@ private:
 	// Sets default values for this pawn's properties
 	ATank();
 	
-	UPROPERTY(EditAnywhere, Category = Firing)
-	float LaunchSpeed = 4000.0; // TODO Find Sensible default
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float LaunchSpeed = 4000.0;
 
-	UPROPERTY(EditAnywhere, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float ReloadTimeInSeconds = 3;
+
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBlueprint;  
 
 	UTankBarrel* Barrel = nullptr;
 
-	float ReloadTimeInSeconds = 3;
+	
 
 	double LastFireTime = 0;
 	
