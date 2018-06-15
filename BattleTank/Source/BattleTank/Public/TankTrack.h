@@ -8,6 +8,13 @@
 
 
 
+
+
+
+
+
+
+
 // Used to set max driving force, and to apply forces to the Tank
 UCLASS(meta = (BlueprintSpawnableComponent))
 class BATTLETANK_API UTankTrack : public UStaticMeshComponent
