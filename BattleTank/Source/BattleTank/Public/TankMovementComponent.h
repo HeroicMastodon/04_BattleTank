@@ -2,15 +2,15 @@
 
 #pragma once
 
+#include "GameFramework/NavMovementComponent.h"
+
+
 #include "CoreMinimal.h"
 #include "GameFramework/NavMovementComponent.h"
 #include "TankMovementComponent.generated.h"
 
 
 class UTankTrack;
-
-
-
 
 
 
@@ -34,6 +34,10 @@ public:
 	
 	UFUNCTION(BlueprintCallable, Category = Input)
 	void Initialize(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToset);
+
+	// TODO check best protection
+	virtual void RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed) override;
+
 
 private:
 
