@@ -27,7 +27,7 @@ public:
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
 	UFUNCTION(BlueprintCallable, Category = Input)
-	void Initialize(UTankBarrel* BarrelToSet, UTankTurret* RightTrackToset);
+	void Initialize(UTankBarrel* BarrelToSet, UTankTurret* RightTrackToSet);
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = State)

@@ -33,7 +33,7 @@ public:
 	void IntendTurnRight(float Throw);
 	
 	UFUNCTION(BlueprintCallable, Category = Input)
-	void Initialize(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToset);
+	void Initialize(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet);
 
 private:
 	// Called from the pathfinding logic by the AI controllers

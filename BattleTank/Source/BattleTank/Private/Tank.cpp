@@ -14,14 +14,15 @@ ATank::ATank()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-
+	UE_LOG(LogTemp, Warning, TEXT("Bandit: tank constructed"))
 }
 
 // Called when the game starts or when spawned
 void ATank::BeginPlay()
 {
-	Super::BeginPlay();
-	
+	Super::BeginPlay(); // Needed for blueprint BeginPlay() to work!
+	UE_LOG(LogTemp, Warning, TEXT("Bandit: tank began play"))
+
 }
 
 
