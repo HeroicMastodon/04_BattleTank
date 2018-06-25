@@ -18,7 +18,7 @@ class UTankTrack;
 
 
 /**
- * 
+ * Responsible for driving Tanks
  */
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class BATTLETANK_API UTankMovementComponent : public UNavMovementComponent
@@ -35,7 +35,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Input)
 	void Initialize(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToset);
 
-	// TODO check best protection
+private:
+	// Called from the pathfinding logic by the AI controllers
 	virtual void RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed) override;
 
 
