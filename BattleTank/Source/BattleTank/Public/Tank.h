@@ -20,14 +20,6 @@ class BATTLETANK_API ATank : public APawn
 
 public:
 
-	
-
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetTurretReference(UTankTurret* TurretToSet);
-
 	UFUNCTION(BluePrintCallable, Category = Setup)
 	void Fire();
 
@@ -61,8 +53,8 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBlueprint;  
 
-	UTankBarrel* Barrel = nullptr;
-
+	// Local barrel reference for spawning projectile
+	UTankBarrel* Barrel = nullptr; // TODO Remove
 	
 
 	double LastFireTime = 0;
