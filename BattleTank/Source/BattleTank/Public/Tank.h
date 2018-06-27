@@ -43,6 +43,7 @@ private:
 	// Sets default values for this pawn's properties
 	ATank();
 	
+	// TODO Remove copy once refactoring is done
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float LaunchSpeed = 4000.0;
 

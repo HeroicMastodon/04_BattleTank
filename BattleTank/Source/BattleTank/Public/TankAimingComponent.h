@@ -39,8 +39,5 @@ private:
 	UTankBarrel* Barrel = nullptr;
 	void MoveBarrelTowards(FVector AimDirection);
 	UTankTurret* Turret = nullptr;
-	void RotateTurretTowards(FVector AimDirection);
-
-	
 
 };

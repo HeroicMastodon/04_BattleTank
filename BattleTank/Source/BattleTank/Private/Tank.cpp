@@ -22,7 +22,7 @@ void ATank::BeginPlay()
 {
 	Super::BeginPlay(); // Needed for blueprint BeginPlay() to work!
 	
-
+	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
 }
 
 
