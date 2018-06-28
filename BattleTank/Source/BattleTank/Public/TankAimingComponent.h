@@ -8,10 +8,10 @@
 
 UENUM()
 enum class EFiringState : uint8 {Reloading, Aiming, Locked};
-
 // Forward Declarations
 class UTankBarrel;
 class UTankTurret;
+class AProjectile;
 
 // Hold Barrel's perperties and Elevate method
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -23,7 +23,8 @@ public:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 
-
+	UFUNCTION(BluePrintCallable, Category = Setup)
+	void Fire();
 
 	void AimAt(FVector HitLocation);
 
@@ -36,6 +37,14 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float LaunchSpeed = 4000.0;
+
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float ReloadTimeInSeconds = 3;
+
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBlueprint;
+
+	double LastFireTime = 0;
 
 private:	
 
