@@ -8,8 +8,8 @@
 
 
 
-class ATank;
 
+class UTankAimingComponent;
 
 
 

@@ -1,8 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Public/Tank.h"
-#include "Public/TankAimingComponent.h"
-
 #include "Engine/World.h"
 #include "Public/TankBarrel.h"
 #include "Public/Projectile.h"
@@ -21,8 +19,7 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay(); // Needed for blueprint BeginPlay() to work!
-	
-	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
+
 }
 
 
@@ -31,15 +28,9 @@ void ATank::BeginPlay()
 void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
 }
 
-void ATank::AimAt(FVector HitLocation)
-{
-	if (!ensure(TankAimingComponent)) { return; }
-	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 
-}
 
 void ATank::Fire()
 {

@@ -7,7 +7,7 @@
 #include "Tank.generated.h"
 
 // forward declarations
-class UTankAimingComponent;
+
 class UTankBarrel;
 
 class AProjectile;
@@ -23,15 +23,14 @@ public:
 	UFUNCTION(BluePrintCallable, Category = Setup)
 	void Fire();
 
-	void AimAt(FVector HitLocation);
+	
 
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(BlueprintReadOnly)
-	UTankAimingComponent* TankAimingComponent = nullptr;
+
 
 
 
