@@ -46,6 +46,8 @@ protected:
 
 	double LastFireTime = 0;
 
+	bool IsBarrelMoving();
+
 	virtual void BeginPlay() override;
 
 private:	
@@ -55,5 +57,7 @@ private:
 	UTankTurret* Turret = nullptr;
 
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
+
+	FVector AimDirection;
 
 };
