@@ -36,7 +36,8 @@ void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick TickTy
 	else if (IsBarrelMoving())
 	{ FiringState = EFiringState::Aiming; }
 	
-	else { FiringState = EFiringState::Locked; }
+	else 
+	{ FiringState = EFiringState::Locked; }
 	
 }
 
