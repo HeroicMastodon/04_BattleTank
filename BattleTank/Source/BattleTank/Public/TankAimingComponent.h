@@ -29,7 +29,7 @@ public:
 	void AimAt(FVector HitLocation);
 
 	UFUNCTION(BlueprintCallable, Category = Input)
-	void Initialize(UTankBarrel* BarrelToSet, UTankTurret* RightTrackToSet);
+	void Initialize(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet);
 
 	EFiringState GetFiringState() const;
 
