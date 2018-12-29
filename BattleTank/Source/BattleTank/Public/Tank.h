@@ -4,13 +4,13 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "GameFramework/Pawn.h"
+#include "Delegates/Delegate.h"
 #include "Tank.generated.h"
-
 // forward declarations
 
 
 
-
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FTankDelegate);
 
 
 UCLASS()
@@ -26,6 +26,7 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Health")
 	float GetHealthPercent() const;
 
+	FTankDelegate OnDeath;
 
 protected:
 	// Called when the game starts or when spawned
@@ -47,7 +48,7 @@ private:
 	int32 StartingHealth = 100;
 
 	UPROPERTY(VisibleAnywhere, Category = "Setup")
-	int32 CurrentHealth = StartingHealth;
+	int32 CurrentHealth;
 
 
 	

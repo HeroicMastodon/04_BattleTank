@@ -13,9 +13,9 @@ class UTankAimingComponent;
 
 
 
-/**
- * 
- */
+
+  
+ 
 UCLASS()
 class BATTLETANK_API ATankAIController : public AAIController
 {
@@ -33,9 +33,14 @@ protected:
 private:
 
 	void BeginPlay() override;
+
+
 	virtual void Tick(float DeltaTime) override;
 	
 
+	virtual void SetPawn(APawn* InPawn) override;
 
+	UFUNCTION()
+	void OnPossedTankDeath();
 	
 };

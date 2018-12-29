@@ -3,6 +3,7 @@
 #include "TankPlayerController.h"
 #include "BattleTank.h"
 #include "Engine/World.h"
+#include "Tank.h"
 #include "Public/TankAimingComponent.h"
 
 void ATankPlayerController::BeginPlay()
@@ -76,7 +77,7 @@ void ATankPlayerController::Tick(float DeltaTime)
 		 HitResult,
 		 StartLocation,
 		 EndLocation,
-		 ECollisionChannel::ECC_Visibility))
+		 ECollisionChannel::ECC_Camera))
 	{
 		 HitLocation = HitResult.Location;
 			 return true;
@@ -84,4 +85,24 @@ void ATankPlayerController::Tick(float DeltaTime)
 	 HitLocation = FVector(0);
 	 return false; // Line trace didn't succeed
 	
+ }
+
+ void ATankPlayerController::SetPawn(APawn* InPawn)
+ {
+	 Super::SetPawn(InPawn);
+
+	 if (InPawn)
+	 {
+		 auto PossessedTank = Cast<ATank>(InPawn);
+		 if (!ensure(PossessedTank)) { return; }
+
+		 PossessedTank->OnDeath.AddUniqueDynamic(this, &ATankPlayerController::OnPossedTankDeath);
+	 }
+ }
+
+ void ATankPlayerController::OnPossedTankDeath()
+ {
+	 UE_LOG(LogTemp, Warning, TEXT("Recieved!"))
+
+	 StartSpectatingOnly();
  }
