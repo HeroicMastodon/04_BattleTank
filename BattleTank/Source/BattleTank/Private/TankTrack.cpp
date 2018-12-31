@@ -24,6 +24,7 @@ void UTankTrack::SetThrottle(float Throttle)
 
 void UTankTrack::DriveTrack(float CurrentThrottle)
 {
+	
 	auto ForceApplied = CurrentThrottle * TrackMaxDrivingForce;
 	auto Wheels = GetWheels();
 	auto ForcePerWheel = ForceApplied / Wheels.Num();
