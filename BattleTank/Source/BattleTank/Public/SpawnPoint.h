@@ -1,7 +1,7 @@
 // CopyRight Assorted Folk LTD
-
 #pragma once
 #include "CoreMinimal.h"
+#include "Kismet/GameplayStatics.h"
 #include "Engine/World.h"
 #include "Components/SceneComponent.h"
 #include "SpawnPoint.generated.h"
