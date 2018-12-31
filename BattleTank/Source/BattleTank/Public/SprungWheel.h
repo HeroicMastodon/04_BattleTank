@@ -1,6 +1,6 @@
-// CopyRight Assorted Folk LLC
 #pragma once
 #include "CoreMinimal.h"
+#include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "PhysicsEngine/PhysicsConstraintComponent.h"
 #include "GameFramework/Actor.h"
@@ -29,11 +29,15 @@ private:
 	
 	// Components
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-	UStaticMeshComponent* Wheel = nullptr;
+	USphereComponent* Wheel = nullptr;
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UPhysicsConstraintComponent* MassWheelConstraint = nullptr;
 
-	
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	USphereComponent* Axel = nullptr;
+
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	UPhysicsConstraintComponent* AxelWheelConstraint = nullptr;
 	
 };
