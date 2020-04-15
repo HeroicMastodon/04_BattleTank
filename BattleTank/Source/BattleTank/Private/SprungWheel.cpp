@@ -73,5 +73,5 @@ void ASprungWheel::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, 
 
 void ASprungWheel::ApplyForce()
 {
-	Wheel->AddForce(Axel->GetForwardVector() * TotalForceMagnitudeThisFrame);
+	Wheel->AddForce(Axel->GetForwardVector() * TotalForceMagnitudeThisFrame, NAME_None, false);
 }
